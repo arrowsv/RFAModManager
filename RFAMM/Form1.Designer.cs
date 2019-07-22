@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Test", "defaulticon.png");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Godmode", "defaulticon.png");
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -93,7 +91,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(160, 50);
+            this.button4.Location = new System.Drawing.Point(172, 50);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 27);
             this.button4.TabIndex = 27;
@@ -107,7 +105,7 @@
             this.game_DirectoryText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.game_DirectoryText.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.game_DirectoryText.ForeColor = System.Drawing.Color.Silver;
-            this.game_DirectoryText.Location = new System.Drawing.Point(263, 57);
+            this.game_DirectoryText.Location = new System.Drawing.Point(275, 57);
             this.game_DirectoryText.Name = "game_DirectoryText";
             this.game_DirectoryText.ReadOnly = true;
             this.game_DirectoryText.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -119,7 +117,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(134)))), ((int)(((byte)(148)))));
-            this.label9.Location = new System.Drawing.Point(154, 23);
+            this.label9.Location = new System.Drawing.Point(166, 23);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(153, 23);
             this.label9.TabIndex = 18;
@@ -130,7 +128,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(134)))), ((int)(((byte)(148)))));
-            this.label8.Location = new System.Drawing.Point(124, 276);
+            this.label8.Location = new System.Drawing.Point(136, 276);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(138, 19);
             this.label8.TabIndex = 19;
@@ -141,7 +139,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(167)))), ((int)(((byte)(179)))));
-            this.label1.Location = new System.Drawing.Point(125, 139);
+            this.label1.Location = new System.Drawing.Point(137, 139);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 23);
             this.label1.TabIndex = 14;
@@ -152,7 +150,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(134)))), ((int)(((byte)(148)))));
-            this.label6.Location = new System.Drawing.Point(124, 220);
+            this.label6.Location = new System.Drawing.Point(136, 220);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 19);
             this.label6.TabIndex = 17;
@@ -163,7 +161,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(134)))), ((int)(((byte)(148)))));
-            this.label3.Location = new System.Drawing.Point(124, 168);
+            this.label3.Location = new System.Drawing.Point(136, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 19);
             this.label3.TabIndex = 15;
@@ -173,7 +171,7 @@
             // 
             this.mod_NameText.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mod_NameText.ForeColor = System.Drawing.Color.White;
-            this.mod_NameText.Location = new System.Drawing.Point(127, 191);
+            this.mod_NameText.Location = new System.Drawing.Point(139, 191);
             this.mod_NameText.Name = "mod_NameText";
             this.mod_NameText.Size = new System.Drawing.Size(454, 25);
             this.mod_NameText.TabIndex = 20;
@@ -182,7 +180,7 @@
             // 
             this.mod_AuthorText.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mod_AuthorText.ForeColor = System.Drawing.Color.White;
-            this.mod_AuthorText.Location = new System.Drawing.Point(127, 243);
+            this.mod_AuthorText.Location = new System.Drawing.Point(139, 243);
             this.mod_AuthorText.Name = "mod_AuthorText";
             this.mod_AuthorText.Size = new System.Drawing.Size(454, 25);
             this.mod_AuthorText.TabIndex = 21;
@@ -192,7 +190,7 @@
             // 
             this.mod_DescriptionText.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mod_DescriptionText.ForeColor = System.Drawing.Color.White;
-            this.mod_DescriptionText.Location = new System.Drawing.Point(125, 299);
+            this.mod_DescriptionText.Location = new System.Drawing.Point(137, 299);
             this.mod_DescriptionText.Name = "mod_DescriptionText";
             this.mod_DescriptionText.Size = new System.Drawing.Size(456, 174);
             this.mod_DescriptionText.TabIndex = 22;
@@ -200,7 +198,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(279, 489);
+            this.button2.Location = new System.Drawing.Point(291, 489);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 34);
             this.button2.TabIndex = 24;
@@ -211,7 +209,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(125, 489);
+            this.button1.Location = new System.Drawing.Point(137, 489);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 34);
             this.button1.TabIndex = 25;
@@ -222,7 +220,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(433, 489);
+            this.button3.Location = new System.Drawing.Point(445, 489);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(148, 34);
             this.button3.TabIndex = 26;
@@ -237,6 +235,7 @@
             // 
             // modList
             // 
+            this.modList.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.modList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
             this.modList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.modList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -244,14 +243,10 @@
             this.columnHeader2});
             this.modList.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modList.ForeColor = System.Drawing.Color.Silver;
-            listViewItem1.ToolTipText = "Infinite Ammo";
-            this.modList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
             this.modList.LargeImageList = this.imageList1;
             this.modList.Location = new System.Drawing.Point(8, 81);
             this.modList.Name = "modList";
-            this.modList.Size = new System.Drawing.Size(111, 442);
+            this.modList.Size = new System.Drawing.Size(125, 442);
             this.modList.TabIndex = 27;
             this.modList.UseCompatibleStateImageBehavior = false;
             this.modList.SelectedIndexChanged += new System.EventHandler(this.modList_SelectedIndexChanged);
@@ -292,7 +287,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Red Faction: Armageddon - Mod Manager";
+            this.Text = "Red Faction: Armageddon - Mod Manager v1.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

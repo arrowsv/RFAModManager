@@ -171,136 +171,151 @@ namespace RFAMM
 
         private async void button1_ClickAsync(object sender, EventArgs e)
         {
-            this.Enabled = false;
-
-            string text = "";
-
-            if (modList.SelectedIndices.Count <= 0)
+            if(modList.SelectedItems.Count > 0)
             {
-                return;
-            }
-            int intselectedindex = modList.SelectedIndices[0];
-            if (intselectedindex >= 0)
-            {
-                text = modList.Items[intselectedindex].Text;
+                this.Enabled = false;
 
+                string text = "";
 
-            }
-
-            Console.WriteLine(text);
-
-            string selecteditem = text;
-
-            try
-            {
-                try
+                if (modList.SelectedIndices.Count <= 0)
                 {
-                    if (!File.Exists(game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc.BACKUP"))
-                    {
-                        File.Copy(game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc", game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc.BACKUP", true);
-                    }
-                    else if (File.Exists(game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc.BACKUP"))
-                    {
-                        Console.WriteLine("Backup file already exists");
-                    }
+                    return;
                 }
-                catch (Exception a)
+                int intselectedindex = modList.SelectedIndices[0];
+                if (intselectedindex >= 0)
                 {
-                    MessageBox.Show(a.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    text = modList.Items[intselectedindex].Text;
+
+
                 }
+
+                Console.WriteLine(text);
+
+                string selecteditem = text;
 
                 try
                 {
-                    if (!File.Exists(game_DirectoryText.Text + "\\build\\pc\\cache\\table.vpp_pc"))
+                    try
                     {
-                        Console.WriteLine("Table file already renamed or removed");
-                    }
-                    else if (File.Exists(game_DirectoryText.Text + "\\build\\pc\\cache\\table.vpp_pc"))
-                    {
-                        File.Move(game_DirectoryText.Text + "\\build\\pc\\cache\\table.vpp_pc", game_DirectoryText.Text + "\\build\\pc\\cache\\table.vpp_pc.RENAMED");
-                    }
-                }
-                catch (Exception a)
-                {
-                    MessageBox.Show(a.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                UnpackVPP();
-
-                //string selecteditem = modList.(modList.SelectedItem);
-                string path = game_DirectoryText.Text + "\\build\\pc\\cache\\_TEMP\\misc.vpp_pc\\";
-                string dirScanner = game_DirectoryText.Text + "\\mods";
-
-                // Scan for XML files located in the user specified game directory.
-                string[] allFiles = Directory.GetFiles(dirScanner, "*.xml", SearchOption.AllDirectories);
-
-                foreach (string file in allFiles)
-                {
-                    // Read XML files found in the game directory.
-                    string[] lines = File.ReadAllLines(file);
-
-                    // Find and search XML files with the same name of the listbox item.
-                    string firstOccurrence = lines.FirstOrDefault(l => l.Contains(selecteditem));
-                    if (firstOccurrence != null)
-                    {
-                        string parent_directory_path;
-                        parent_directory_path = Path.GetDirectoryName(file);
-
-                        string[] files = Directory.GetFiles(parent_directory_path + "\\misc.vpp_pc\\");
-                        try
+                        if (!File.Exists(game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc.BACKUP"))
                         {
-                            foreach (string file2 in files)
+                            File.Copy(game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc", game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc.BACKUP", true);
+                        }
+                        else if (File.Exists(game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc.BACKUP"))
+                        {
+                            Console.WriteLine("Backup file already exists");
+                        }
+                    }
+                    catch (Exception a)
+                    {
+                        MessageBox.Show(a.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    try
+                    {
+                        if (!File.Exists(game_DirectoryText.Text + "\\build\\pc\\cache\\table.vpp_pc"))
+                        {
+                            Console.WriteLine("Table file already renamed or removed");
+                        }
+                        else if (File.Exists(game_DirectoryText.Text + "\\build\\pc\\cache\\table.vpp_pc"))
+                        {
+                            File.Move(game_DirectoryText.Text + "\\build\\pc\\cache\\table.vpp_pc", game_DirectoryText.Text + "\\build\\pc\\cache\\table.vpp_pc.RENAMED");
+                        }
+                    }
+                    catch (Exception a)
+                    {
+                        MessageBox.Show(a.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    UnpackVPP();
+
+                    //string selecteditem = modList.(modList.SelectedItem);
+                    string path = game_DirectoryText.Text + "\\build\\pc\\cache\\_TEMP\\misc.vpp_pc\\";
+                    string dirScanner = game_DirectoryText.Text + "\\mods";
+
+                    // Scan for XML files located in the user specified game directory.
+                    string[] allFiles = Directory.GetFiles(dirScanner, "*.xml", SearchOption.AllDirectories);
+
+                    foreach (string file in allFiles)
+                    {
+                        // Read XML files found in the game directory.
+                        string[] lines = File.ReadAllLines(file);
+
+                        // Find and search XML files with the same name of the listbox item.
+                        string firstOccurrence = lines.FirstOrDefault(l => l.Contains(selecteditem));
+                        if (firstOccurrence != null)
+                        {
+                            string parent_directory_path;
+                            parent_directory_path = Path.GetDirectoryName(file);
+
+                            string[] files = Directory.GetFiles(parent_directory_path + "\\misc.vpp_pc\\");
+                            try
                             {
-                                // Delete files with names from program folder
-                                string filenames = Path.GetFileName(file2);
-                                string filestocopy = Path.Combine(parent_directory_path + "\\misc.vpp_pc\\", filenames);
-                                DirectoryInfo d = new DirectoryInfo(parent_directory_path + "\\misc.vpp_pc\\");
-                                File.Delete(Path.Combine(path, filenames));
+                                foreach (string file2 in files)
+                                {
+                                    // Delete files with names from program folder
+                                    string filenames = Path.GetFileName(file2);
+                                    string filestocopy = Path.Combine(parent_directory_path + "\\misc.vpp_pc\\", filenames);
+                                    DirectoryInfo d = new DirectoryInfo(parent_directory_path + "\\misc.vpp_pc\\");
+                                    File.Delete(Path.Combine(path, filenames));
+                                }
+
+                                DirectoryInfo d2 = new DirectoryInfo(parent_directory_path + "\\misc.vpp_pc\\");
+                                string d4 = parent_directory_path + "\\misc.vpp_pc\\";
+                                string d3 = game_DirectoryText.Text + "\\build\\pc\\cache\\_TEMP\\misc.vpp_pc\\";
+                                Console.WriteLine(d3);
+                                Console.WriteLine(d2);
+
+                                foreach (FileInfo files2 in d2.GetFiles("*.*", SearchOption.AllDirectories))
+                                {
+                                    files2.CopyTo(Path.Combine(d3, files2.Name));
+                                }
+                            }
+                            catch (Exception a)
+                            {
+                                MessageBox.Show(a.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
-                            DirectoryInfo d2 = new DirectoryInfo(parent_directory_path + "\\misc.vpp_pc\\");
-                            string d4 = parent_directory_path + "\\misc.vpp_pc\\";
-                            string d3 = game_DirectoryText.Text + "\\build\\pc\\cache\\_TEMP\\misc.vpp_pc\\";
-                            Console.WriteLine(d3);
-                            Console.WriteLine(d2);
-
-                            foreach (FileInfo files2 in d2.GetFiles("*.*", SearchOption.AllDirectories))
-                            {
-                                files2.CopyTo(Path.Combine(d3, files2.Name));
-                            }
                         }
-                        catch (Exception a)
-                        {
-                            MessageBox.Show(a.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-
                     }
+
+                    //Delete VPP so that the VPP can be packed without an error.
+                    File.Delete(game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc");
+
+                    while (!Directory.Exists(game_DirectoryText.Text + "\\build\\pc\\cache\\_TEMP\\"))
+                    {
+                        wait(1000);
+                        Console.WriteLine("_TEMP is not created yet.");
+                    }
+                    while (Directory.Exists(game_DirectoryText.Text + "\\build\\pc\\cache\\_TEMP\\"))
+                    {
+                        string[] Args2 = { game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc", game_DirectoryText.Text + "\\build\\pc\\cache\\_TEMP\\misc.vpp_pc\\" };
+                        int UnpackExitCode2 = new Gibbed.Volition.Pack.VPP.Packer<Gibbed.Volition.FileFormats.PackageFileV6, Gibbed.Volition.FileFormats.Package.Entry>().Main(Args2);
+                        break;
+                    }
+
+                    Directory.Delete(game_DirectoryText.Text + "\\build\\pc\\cache\\_TEMP\\", true);
+
+                    this.Enabled = true;
+
+                    MessageBox.Show("Mod activated.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                //Delete VPP so that the VPP can be packed without an error.
-                File.Delete(game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc");
-
-                while (!Directory.Exists(game_DirectoryText.Text + "\\build\\pc\\cache\\_TEMP\\"))
+                catch (FileNotFoundException a)
                 {
-                    wait(1000);
-                    Console.WriteLine("_TEMP is not created yet.");
+                    MessageBox.Show("The misc.vpp_pc file could not be found in your build\\pc\\cache directory!", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Enabled = true;
                 }
-                while (Directory.Exists(game_DirectoryText.Text + "\\build\\pc\\cache\\_TEMP\\"))
+                catch (Exception b)
                 {
-                    wait(10000);
-                    string[] Args2 = { game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc", game_DirectoryText.Text + "\\build\\pc\\cache\\_TEMP\\misc.vpp_pc\\" };
-                    int UnpackExitCode2 = new Gibbed.Volition.Pack.VPP.Packer<Gibbed.Volition.FileFormats.PackageFileV6, Gibbed.Volition.FileFormats.Package.Entry>().Main(Args2);
-                    break;
+                    MessageBox.Show(b.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Enabled = true;
                 }
-
-                Directory.Delete(game_DirectoryText.Text + "\\build\\pc\\cache\\_TEMP\\", true);
-
-                this.Enabled = true;
             }
-            catch (Exception b)
+            else
             {
-                MessageBox.Show(b.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("You don't have a mod selected yet!", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
 
         }
 
@@ -316,14 +331,24 @@ namespace RFAMM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try
+            if(File.Exists(game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc.BACKUP"))
             {
-                File.Delete(game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc");
-                File.Move(game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc.BACKUP", game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc");
+                try
+                {
+                    File.Delete(game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc");
+                    File.Move(game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc.BACKUP", game_DirectoryText.Text + "\\build\\pc\\cache\\misc.vpp_pc");
+                    MessageBox.Show("Your files have been restored! You can now run RF:A without mods.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception b)
+                {
+                    MessageBox.Show(b.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
-            catch(Exception b)
+            else
             {
-                MessageBox.Show(b.ToString(), "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A backup file hasn't been created in your directory yet! This may be because you haven't activated any mods yet.", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
