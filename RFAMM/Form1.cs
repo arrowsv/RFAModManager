@@ -393,7 +393,7 @@ namespace RFAMM
         private void button4_Click_1(object sender, EventArgs e)
         {
             FolderBrowserDialog folderDlg = new FolderBrowserDialog();
-            folderDlg.ShowNewFolderButton = true;
+            folderDlg.ShowNewFolderButton = false;
             folderDlg.Description = "Browse for your RF:A folder! Do NOT select a directory that isn't your game folder.";
             // Show the FolderBrowserDialog.  
             DialogResult result = folderDlg.ShowDialog();
@@ -468,6 +468,33 @@ namespace RFAMM
 
         private void modList_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {
+        }
+
+        void button5_Click(object sender, EventArgs e)
+        {
+
+            Form fc = Application.OpenForms["newMod"];
+            if (fc != null)
+            {
+                Console.WriteLine("newMod is already opened, not showing.");
+                return;
+            }
+            else
+            {
+                newMod nW = new newMod();
+                nW.Show();
+                Console.WriteLine("newMod is not opened, showing.");
+            }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }
